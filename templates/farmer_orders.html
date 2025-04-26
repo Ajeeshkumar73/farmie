@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile1.css') }}" type="text/css"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img
+                            src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{ url_for('backfarmer') }}">Home</a></li>
+                                    
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </header>
+                <div class="payment-section">
+                    <div class="Product-section">
+    <h1>Orders</h1>
+    <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br>
+
+    <div class="table-container">
+        <div style="overflow: hidden; overflow-y: auto; height: 350px;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Phone No</th>
+                    <th>Item</th>
+                    <th>Total</th>
+                    <th>Payment Method</th>
+                    <th>Order Date</th>
+                    <th></th>
+                                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order._id }}</td>
+                    <td>{{ order.username }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phoneno }}</td>
+                    <td>{{ order.product_name }}</td>
+                    <td>{{ order.total }}</td>
+                    <td>{{ order.payment_method }}</td>
+                    <td>{{ order.order_date }}</td>
+                   <!--<td> <button onclick="sendMessage(' Order Accepted')" style="padding: 5px; color: white;border: none; background-color: #77b122 ; border-radius: 5px;">Accept</button></a>
+                   </td>-->
+            
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        
+    
+    </div>
+    </div>
+    </div>
+    <footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+        <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+        </footer>   
+        
+        <!--msg-->
+        
+</body>
+</html>

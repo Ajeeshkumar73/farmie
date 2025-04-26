@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmily - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}" type="text/css"> 
+    <style>
+        /* Additional styling for active slide */
+        .slide { display: none; } /* Hide all slides by default */
+        .slide.active { display: block; } /* Display only the active slide */
+    </style>
+</head>
+<body>
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        <!-- Navbar Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="{{ url_for('home') }}">Home</a></li>
+                                <!--<li><a href="javascript:void(0);" onclick="showSlide(0)">Cultivation Steps</a></li>
+                                <li><a href="javascript:void(0);" onclick="showSlide(1)">Upload News</a></li>
+                                <li><a href="javascript:void(0);" onclick="showSlide(2)">Disease Solution</a></li>-->
+                                <li><a href="/signout">Sign Out</a></li>
+                            </ul>
+                        </div>
+                        <!-- Navbar End -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin"><h1>Admin Dashboard</h1></div>
+
+<!-- Slide Content -->
+<div class="admin-section">
+    <!-- Cultivation Steps Slide -->
+    <div class="slide active">
+        <h1>Upload Cultivation Steps</h1>
+        <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br><br>
+        <form method="POST" action="{{ url_for('admin') }}">
+            <input type="hidden" name="form_type" value="cultivation">  <!-- Identify form -->
+            <label for="climate">Climate:</label>
+            <input type="text" id="climate" name="climate" required>
+        
+            <label for="soil_type">Soil Type:</label>
+            <input type="text" id="soil_type" name="soil_type" required>
+        
+            <label for="crop_name">Name:</label>
+            <input type="text" id="crop_name" name="crop_name" required><br><br>
+        
+            <label for="steps">Cultivation Steps:</label><br>
+            <div id="steps-container">
+                <input type="text" name="steps[]" required placeholder="Step 1">
+            </div>
+            <button type="button" onclick="addStep()">+ Add Step</button><br><br>
+        
+            <button type="submit">Submit</button>
+        </form>
+        
+    </div>           
+
+        <!-- News Slide -->
+        <div class="slide">
+            <div class="inner-slide">
+            <h1>Upload Recent News</h1>
+            <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br><br>
+            <form method="POST">
+                <label for="heading">Heading:</label>
+                <input type="text" id="heading" name="heading" required>
+                <label for="news">News:</label>
+                <input type="text" id="news" name="news" required><br>
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+        </div>
+
+        <!-- Disease Solution Slide -->
+        <div class="slide">
+            <div class="inner-slide">
+            <h1> Upload Disease Solution</h1>
+            <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br><br>
+            <form method="POST">
+                <label for="disease">Disease:</label>
+                <input type="text" id="heading" name="heading" required>
+                
+                <label for="solution">Solution:</label>
+                <input type="text" id="solution" name="solution" required><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for slide functionality -->
+    <script>
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+    </script>
+
+    <!--step-->
+<script>
+    function addStep() {
+        let container = document.getElementById("steps-container");
+        let stepCount = container.getElementsByTagName("input").length + 1;
+        let newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.name = "steps[]";
+        newInput.required = true;
+        newInput.placeholder = "Step " + stepCount;
+        container.appendChild(newInput);
+    }
+    </script>
+</body>
+</html>

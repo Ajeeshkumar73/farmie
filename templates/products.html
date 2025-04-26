@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}" type="text/css">
+</head>
+<body style="height: 100vh;">
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img
+                            src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{ url_for('backfarmer') }}">Home</a></li>
+                                    
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </header>
+                <div class="view-product" >
+                    <div class="Product-section" style="height: fit-content;" >
+    <h1>Products</h1>
+    <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br>
+    <div class="table-container" id="product-container" style="overflow:hidden; overflow-y:auto;">
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product['name'] }}</td>
+            <td>{{ product['price'] }}</td>
+            <td>{{ product['description'] }}</td>
+            <td>{{ product['category'] }}</td>
+            <td>{{ 'Sold' if product['sold'] else 'Available' }}</td>
+            <td><a href="/edit_product/{{ product['_id'] }}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <!-- Read More Button (Always Visible) -->
+    <!--<button id="read-more-btn" class="read-more-btn" onclick="toggleHeight()">Read More</button>-->
+    </div>
+    
+    </div>
+    <footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+        <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+        </footer> 
+        
+        <!--read more to product-->
+<script>
+    function toggleHeight() {
+    var container = document.getElementById("product-container");
+    var button = document.getElementById("read-more-btn");
+
+    if (container.classList.contains("expanded")) {
+        container.style.height = "300px";
+        container.classList.remove("expanded");
+        button.textContent = "Read More";
+
+        // Scroll back to 1400px from the top
+        window.scrollTo({ top: 300, behavior: "smooth" });
+
+    } else {
+        container.style.height = container.scrollHeight + "px"; // Expand dynamically
+        container.classList.add("expanded");
+        button.textContent = "Read Less";
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+.view-product
+{   display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: gray;
+    color: #333;border-color: black;
+    padding-left: 60px;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    
+
+}
+
+.Product-section{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+    align-items: center;
+    margin: 100px;
+}
+
+/* Cart Section Styling */
+.cart-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin-left: 40px;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.cart-table {
+    width: 700px;
+    border-collapse: collapse;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(237, 237, 237);
+    text-align: center;
+}
+
+th {
+    background: #f9f9f9;
+    color: rgb(66, 65, 65);
+    font-size: 15px;
+    width: 700px;
+    
+   
+}
+
+
+.table-body-row td {
+    padding: 15px;
+    border: 1px solid #f9f9f9;
+    vertical-align: middle;
+    width: 700px;
+    background-color: white;
+
+}
+
+.table-body-row:nth-child(even) {
+    background: #f2f2f2;
+}
+
+
+
+/* Cart Total Section */
+.total-section {
+    background: white;
+    padding: 20px;
+   
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-table {
+    width: 100%;
+    text-align: middle;
+    border: 1px solid #f9f9f9;
+}
+
+.total-table-head {
+    background: #f9f9f9;
+    color: rgb(97, 97, 97);
+}
+
+.total-data td,th {
+    padding: 10px;
+    border: 1px solid #f9f9f9;
+   
+}
+
+.cart-buttons {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.boxed-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 10px;
+        background-color:#77b122;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s;
+        align-items: center;
+    
+}
+
+.boxed-btn:hover {   
+        background-color: #62911c;
+        transform: scale(1.05);
+}
+
+.black {
+    background-color:#77b122;
+}
+
+.black:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.info-box {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+}
+body{
+    background-color: rgb(237, 237, 237)
+}
+
+.product-quantity input
+{
+    border: none;
+    
+}
+
+#scrolldown {
+    border-top: 2px solid #d0d0d0;
+  
+}
+
+/* Always show number input buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1; /* Make the buttons visible */
+    display: block; /* Ensure they are always displayed */
+}
+

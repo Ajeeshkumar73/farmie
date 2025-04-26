@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}" type="text/css">   
+</head>
+<body>
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img
+                            src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="/user_home">Home</a></li>
+                                    <li><a href="/cart">🛒 Cart <span id="cart-count">({{ cart_count }})</span></a></li>
+                                    
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </header>
+    
+    <main>
+        
+        <div class="product-container">
+          
+            <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                <!-- Product Thumbnail -->
+                <div class="product-thumbnail" id="project">
+                    <img src="{{ url_for('static', filename='uploads/' + product['image']) }}" alt="{{ product['name'] }}" >
+                    <!-- Product Tags -->
+                    <span class="product-tags">Products</span>
+                </div>
+                </div>
+               
+            <div class="product-details">
+                <h2>{{ product['name'] }}</h2>
+                <p> | <span class="instock">Available (In Stock)</span></p>
+                <p class="description">
+                    {{ product['description'] }}
+                </p>
+                <p class="price">
+                    <span class="discount-price">Rs {{ product['price'] }}</span>
+                </p>
+                <div class="button">
+                <form action="/add_to_cart/{{ product['_id'] }}" method="POST">
+                    <button class="add-to-cart">🛒 Add to Cart</button>
+                   
+                </form>
+                <a href="/user_home" class="add-to-cart">Cancel X</a>
+                </div>
+            </div>
+    
+        </div>		
+        
+        <div class="info-boxes">
+            <div class="info-box">
+                <h3>Lowest Price Guaranteed</h3>
+                <p>Get a refund if you find it cheaper elsewhere.</p>
+            </div>
+            <div class="info-box">
+                <h3>Fresh & Organic</h3>
+                <p>100% organic vegetables & fruits available here.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function updateCartCount() {
+            $.get("/cart_count", function(data) {
+                $("#cart-count").text(`(${data.count})`);
+            });
+        }
+        
+        $(document).ready(function(){
+            updateCartCount(); // Update on page load
+        
+            // Call updateCartCount periodically (optional)
+            setInterval(updateCartCount, 5000); // Update every 5 seconds
+        });
+        </script> 
+</body>
+</html>

@@ -1,0 +1,122 @@
+
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            float: left;
+            margin-left: 100px;
+            height: 500px;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .profile-btn {
+            width: auto;
+            background:none;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            color: #77b122;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-bottom: 50px;
+            margin-left: 400px;
+        }
+        .profile-btn:hover {
+            color: #62911c;
+            
+        }
+    .history
+    {
+        float: left;
+        background-color: white;
+        margin-left: 80px;
+        margin-top: 50px;
+        width: 500px; padding: 20px;
+        border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+    }
+
+    .text-center
+    {
+        text-align: left;
+    }
+
+    h2{
+        text-align: left;
+    }
+     p{
+        color: black;
+        font-size: 16px;
+        text-align: center;
+     }
+
+     .order-item {
+        max-height: 100px;  /* Limit height */
+        overflow: hidden;   /* Hide overflow */
+        position: relative;
+    }
+
+    
+    .history ul {
+        max-height: 300px; /* Adjust height */
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+    .order-details{
+        height: fit-content;
+        border: 1px solid black;
+        padding: 2px;
+        padding-left: 5px;
+
+    }
+
+    .list
+    {
+        height: fit-content;
+
+    }
+    .psection{
+        width:90%;
+        height: 100vh;
+        background-color: rgb(220, 220, 220);
+        margin: auto;
+        position: relative;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 100px;
+
+    }
+    #readMoreBtn
+    {
+        margin-top: 5px;
+    }
+    .profile-sec
+    {
+        width: 600px;
+        height: fit-content;
+        padding-left: 0px;
+        display: block;
+    }
+    .profile-sec2  
+    {
+ align-items: left;
+ text-align: left;
+    }
+
+
+    /* Card css */
+
+   

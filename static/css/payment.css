@@ -1,0 +1,244 @@
+.table-container
+{
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color:#cecdcd;
+    border-radius: 1px;
+    overflow: hidden; 
+    overflow-y: auto;
+  
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial,sans-serif;
+    border-radius: 0px;
+    background-color: white;
+    
+
+}
+
+ th{
+    background-color: #77b122;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+ 
+tr
+{
+    border-bottom: 1px solid #ddd;
+}
+
+td
+{
+    padding: 12px;  
+}
+
+tbody:hover{
+    background-color: #f1f1f1;
+}
+
+.payment-section
+{   display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: gray;
+    color: #333;border-color: black;
+    padding-left: 60px;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    
+
+}
+
+.Payment-table{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+    align-items: center;
+    margin: 100px;
+}
+
+.Product-section{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+    align-items: center;
+    margin: 100px;
+}
+
+
+/* Payment template */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+       /* body{
+        background-color:#f5eee7;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+       } */
+
+       /* .container{
+
+        height: 100vh;
+
+       } */
+
+       .card{
+
+        border: none;
+       }
+
+       .card-header {
+            padding: .5rem 1rem;
+            margin-bottom: 0;
+            background-color: rgba(0,0,0,.03);
+            border-bottom: none;
+        }
+
+        .btn-light:focus {
+            color: #212529;
+            background-color: #e2e6ea;
+            border-color: #dae0e5;
+            box-shadow: 0 0 0 0.2rem rgba(216,217,219,.5);
+        }
+
+        .form-control{
+
+          height: 50px;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    font-size: 14px;
+        }
+
+        .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #039be5;
+    outline: 0;
+    box-shadow: none;
+
+    }
+
+    .input{
+
+      position: relative;
+    }
+
+    .input i{
+
+          position: absolute;
+    top: 16px;
+    left: 11px;
+    color: #989898;
+    }
+
+    .input input{
+
+      text-indent: 25px;
+    }
+
+    .card-text{
+
+      font-size: 13px;
+    margin-left: 6px;
+    }
+
+    .certificate-text{
+
+      font-size: 12px;
+    }
+
+       
+    .billing{
+      font-size: 11px;
+    }  
+
+    .super-price{
+
+          top: 0px;
+    font-size: 22px;
+    }
+
+    .super-month{
+
+          font-size: 11px;
+    }
+
+
+    .line{
+      color: #bfbdbd;
+    }
+
+    .free-button{
+
+          background: #1565c0;
+    height: 52px;
+    font-size: 15px;
+    border-radius: 8px;
+    }
+
+
+    .payment-card-body{
+
+    flex: 1 1 auto;
+    padding: 24px 1rem !important;
+
+    }
+    body {
+      background-color: #f8f9fa;
+  }
+  .payment-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .payment-btn {
+      width: 100%;
+      background: #77b122;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 5px;
+      transition: 0.3s;
+  }
+  .payment-btn:hover {
+      background-color: #62911c;
+transform: scale(1.05);
+  }
+  .total-table td {
+      padding: 10px;
+  }
+  .summary
+  {
+    width: 300px;
+    border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }

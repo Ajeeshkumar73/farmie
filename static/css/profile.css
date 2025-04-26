@@ -1,0 +1,151 @@
+.Profile{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1380px;
+    width: 100%;
+    height: 372px;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+}
+
+.profile-section
+{   display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: #333;border-color: black;
+    padding-left: 60px;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.Product-section{
+    background-color:white;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1380px;
+    width: 100%;
+    height: 450px;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+    align-items: center;
+}
+
+button {
+    background-color:#77b122;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    width: 150px; 
+    align-items: center;
+    height: 40px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+
+button:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+form {
+    border: #333;
+   }
+   
+   label {
+       padding-left: 20px;
+   }
+
+   input[type="text"], input[type="number"],textarea,input[type="email"] {
+   
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    width: 200px; 
+    padding-left: 10px;;
+    transition: transform 0.2s;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    height: 35px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input:hover {
+ transform: scale(1.05);
+}
+
+#address{
+
+    width: 100%; /* Full width, adjust as needed */
+    max-width: 400px; /* Maximum width for larger screens */
+    padding: 10px; /* Inner padding for better readability */
+    font-size: 16px; /* Adjust font size */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+a{
+    color: white;
+    font-size: 16px;
+}
+
+#state
+{
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    width: 200px; 
+    padding-left: 10px;;
+    transition: transform 0.2s;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    height: 35px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding-right: 10px;
+}
+
+#district
+{
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    width: 200px; 
+    padding-left: 10px;;
+    transition: transform 0.2s;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    height: 35px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding-right: 10px;
+}
+
+#state:hover {
+    transform: scale(1.05);
+   }
+
+   #district:hover {
+    transform: scale(1.05);
+   }

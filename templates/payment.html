@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pay.css') }}" type="text/css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+        
+</head>
+<body>
+    <header class="header-area">
+
+		<!-- Navbar Area -->
+		<div class="famie-main-menu" id="login_space">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<!-- Menu -->
+					<nav class="classy-navbar justify-content-between" id="famieNav">
+						<!-- Nav Brand -->
+						<a href="#" class="nav-brand"><img
+							src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+						<!-- Navbar Toggler -->
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
+						<!-- Menu -->
+						
+							<!-- Navbar Start -->
+							<div class="classynav">
+								<ul>
+									<li><a href="/user_home">Home</a></li>
+									
+								</ul>
+							<!-- Navbar End -->
+						</div>
+					</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    
+    <div class=" payment-contain" style="background-color: #ececec; width: 100%; height: 100vh;">
+      <div class="container" id="bottomDiv">  
+      <div class="row g-3">
+        <div class="col-md-6">  
+            <span>Payment Method</span>
+            <form action="{{ url_for('process_payment') }}" method="POST" onsubmit="return showOrderSuccess()">
+        <div class="card">
+
+          <div class="accordion" id="accordionExample">
+            
+            <div class="card">
+              <div class="card-header p-0" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="d-flex align-items-center justify-content-between">
+
+                      <span>UPI</span>
+                      <img src="{{ url_for('static', filename='images/upi-logo.png') }}" width="50">
+                      
+                    </div>
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <input type="text" class="form-control" placeholder=" enter UPI id" name="payment-method" id="payment-method">
+                </div>
+              </div>
+            </div>
+            <div id="cod">
+                <div class="radio-group">
+                    <label><input type="radio" name="payment_method" id="payment_method" value="cash_on_delivery" required>Cash on Delivery</label>
+                </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header p-0">
+                <h2 class="mb-0">
+                  <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="d-flex align-items-center justify-content-between">
+
+                      <span>Credit card</span>
+                      <div class="icons">
+                        <img src="{{ url_for('static', filename='images/2ISgYja.png') }}" width="30">
+                        <img src="{{ url_for('static', filename='images/W1vtnOV.png') }}" width="30">
+                        <img src="{{ url_for('static', filename='images/35tC99g.png') }}" width="30">
+                        <img src="{{ url_for('static', filename='images/2ISgYja.png') }}" width="30">
+                      </div>
+                      
+                    </div>
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body payment-card-body">
+                  
+                  <span class="font-weight-normal card-text">Card Number</span>
+                  <div class="input">
+
+                    <i class="fa fa-credit-card"></i>
+                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="payment-method" id="payment-method">
+                    
+                  </div> 
+
+                  <div class="row mt-3 mb-3">
+
+                    <div class="col-md-6">
+
+                      <span class="font-weight-normal card-text">Expiry Date</span>
+                      <div class="input">
+
+                        <i class="fa fa-calendar"></i>
+                        <input type="text" class="form-control" placeholder="MM/YY">
+                        
+                      </div> 
+                      
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                      <span class="font-weight-normal card-text">CVC/CVV</span>
+                      <div class="input">
+
+                        <i class="fa fa-lock"></i>
+                        <input type="text" class="form-control" placeholder="000">
+                        
+                      </div> 
+                      
+                    </div>
+                    
+
+                  </div>
+
+                  <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
+                 
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+          <span>Summary</span>
+
+          <div class="card">
+
+            <div class="d-flex justify-content-between p-3">
+
+              <div class="d-flex flex-column">
+
+                <span>Subtotal</span>
+                
+                
+              </div>
+
+              <div class="mt-1">
+                <sup class="super-price">Rs {{ subtotal }}</sup>
+              </div>
+              
+            </div>
+
+            <hr class="mt-0 line">
+
+            <div class="p-3">
+
+              <div class="d-flex justify-content-between mb-2">
+
+                <span>Delivery change</span>
+                <span>Rs {{ shipping }}</span>
+                
+              </div>
+
+              <div class="d-flex justify-content-between">
+
+               <span></span>
+                <span>+5</span>
+                
+              </div>
+              
+
+            </div>
+
+            <hr class="mt-0 line">
+
+
+            <div class="p-3 d-flex justify-content-between">
+
+              <div class="d-flex flex-column">
+
+                <span>Total</span>
+        
+                
+              </div>
+              <sup class="super-price">Rs {{ total }}</sup>
+              
+
+            </div>
+
+
+            <div class="p-3">
+             
+                <div class="mb-3">
+                    <label for="address" class="form-label">Shipping Address</label>
+                    <textarea name="address" id="address" class="form-control" rows="3" required>{{ user.address if user.address else '' }}</textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="phoneno" class="form-label">Mobile Number*</label>
+                 <input type="text" id="phoneno" name="phoneno" required="" placeholder="Enter 10-digit" value="{{ user.phoneno if user.phoneno else '' }}">
+              </div>
+                
+                
+                <button type="submit" class="payment-btn">Confirm & Pay</button>
+            </form>
+           
+        </div>
+
+
+
+            
+          </div>
+        </div>
+    </div>
+    <form action="{{ url_for('cancel') }}" method="post">
+      <button type="submit" class="btn btn-danger" style="margin-top: 7px;">Cancel</button>
+  </form>
+</div>
+
+</div>
+
+<footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+  <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+  </footer> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showOrderSuccess() {
+            alert("Payment Successful! Your order has been placed.");
+            return true; // Allows the form to be submitted after the alert
+        }
+    </script>  
+
+    <!--form validation-->  
+  <script>
+    function validateForm() {
+        let address = document.getElementById("address");
+        let phone = document.getElementById("phoneno");
+        let paymentMethods = document.getElementsByName("payment_method");
+        let proceedButton = document.querySelector(".payment-btn");
+        let isValid = true;
+
+        // Validate Address (Should Not Be Empty)
+        if (address.value.trim() === "") {
+            address.style.border = "1px solid red";
+            isValid = false;
+        } else {
+            address.style.border = "";
+        }
+
+        // Validate Phone Number (Should Be Exactly 10 Digits)
+        let phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phone.value.trim())) {
+            phone.style.border = "1px solid red";
+          
+            isValid = false;
+          
+        } else {
+            phone.style.border = "";
+        }
+
+        // Validate Payment Method (At Least One Should Be Selected)
+        let paymentSelected = false;
+        for (let method of paymentMethods) {
+            if (method.checked) {
+                paymentSelected = true;
+                break;
+            }
+        }
+
+        
+
+        // Disable/Enable Proceed Button
+        proceedButton.disabled = !isValid;
+        return isValid;
+    }
+
+    // Attach validation function to form fields
+    document.getElementById("address").addEventListener("input", validateForm);
+    document.getElementById("phoneno").addEventListener("input", validateForm);
+    document.querySelectorAll('input[name="payment_method"]').forEach(input => {
+        input.addEventListener("change", validateForm);
+    });
+
+</script>
+<script>
+  function validatePaymentMethod() {
+      let paymentMethods = document.getElementsByName("payment_method");
+      let paymentSelected = false;
+      for (let method of paymentMethods) {
+          if (method.checked) {
+              paymentSelected = true;
+              break;
+          }
+      }
+      if (!paymentSelected) {
+          alert("Please select a payment method before proceeding.");
+          return false;
+      }
+      return true;
+  }
+</script>
+
+</body>
+</html>
+

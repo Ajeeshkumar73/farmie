@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="admin-section">
+        <div class="news-section">
+            <h1>Upload Recent News</h1>
+            <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br><br>
+             <form method="POST">
+                 <label for="heading">Heading:</label>
+                  <input type="text" id="heading" name="heading" required></textarea>
+                 <label for="news">News:</label>
+                 <textarea id="news" name="news" required></textarea><br><br>
+                 <button type="submit">Submit</button>
+             </form>
+        </div>
+    </div>
+</body>
+</html>

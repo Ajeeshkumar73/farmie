@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmily - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+<!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginpage.css') }}" type="text/css"> 
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission until validation is complete
+            
+            let username = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (username === "") {
+                alert("Username cannot be empty");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+            
+            document.getElementById("registerForm").submit(); // Submit the form if all validations pass
+        }
+    </script>
+    <style>
+        /* Styling for background image */
+        .single-welcome-slides {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: url("{{ url_for('static', filename='images/7.jpg') }}") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-area">
+
+		<!-- Navbar Area -->
+		<div class="famie-main-menu" id="login_space">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<!-- Menu -->
+					<nav class="classy-navbar justify-content-between" id="famieNav">
+						<!-- Nav Brand -->
+						<a href="#" class="nav-brand"><img
+							src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+						<!-- Navbar Toggler -->
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
+						<!-- Menu -->
+						<div class="classy-menu">
+							<!-- Close Button -->
+							<div class="classycloseIcon">
+								<div class="cross-wrap">
+									<span class="top"></span><span class="bottom"></span>
+								</div>
+							</div>
+							<!-- Navbar Start -->
+							<div class="classynav">
+								<ul>
+									<li><a href="{{ url_for('home') }}">Home</a></li>
+								</ul>
+								
+							</div>
+							<!-- Navbar End -->
+						</div>
+					</nav>
+                </div>    
+            </div>
+        </div>        
+      </header><!-- Single Welcome Slides -->
+	  <div class="single-welcome-slides">
+      <div class="container h-100">
+           <div class="row h-100 align-items-center">
+                 <!-- Modal for Login Form -->
+               <div class="register">
+                   <h2> User Register</h2>
+                       <form  id="registerForm" method="POST" action="{{ url_for('register') }}"  onsubmit="validateForm(event)">
+                        <div class="form-group">
+                            <label for="name">Username:</label>
+                                <input type="text" name="name" id="name" required placeholder="username">
+                            </div>
+                           <div class="form-group">
+                            <label for="email">Email:</label>
+                                <input type="email" name="email" id="email" required placeholder="Email">
+                            </div>
+                               <div class="form-group">
+                                   <label for="password">Password</label>
+                                   <input type="password" name="password" id="password" required placeholder="Password">
+                               </div>
+                                   <button type="submit" class="login-btn">Register</button>
+                       </form>
+                       <a href="{{ url_for('login') }}">Already have an account? Login here</a>
+               </div>
+           </div>  
+       </div>
+  </div>
+</div>
+</div>
+<footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+<p>Contact Us: info@farmily.com | Follow us on social media!</p>
+</footer>
+</body>
+</html>

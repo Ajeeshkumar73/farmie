@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <h1>Complete Your Payment</h1>
+    <p>You are purchasing {{ session['quantity'] }} of {{ session['product']['name'] }}</p>
+    <p>Amount: ${{ session['quantity'] * 100 }} (Sample Amount)</p>
+
+    <form method="POST">
+        <button type="submit">Pay Now</button>
+    </form>
+</body>
+</html>

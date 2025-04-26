@@ -1,0 +1,35 @@
+<div class="table-container">
+        <div style="overflow: hidden; overflow-y: auto; height: 350px;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Phone No</th>
+                    <th>Item</th>
+                    <th>Total</th>
+                    <th>Payment Method</th>
+                    <th>Order Date</th>
+                    <th></th>
+                                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order._id }}</td>
+                    <td>{{ order.username }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.phoneno }}</td>
+                    <td>{{ order.product_name }}</td>
+                    <td>{{ order.total }}</td>
+                    <td>{{ order.payment_method }}</td>
+                    <td>{{ order.order_date }}</td>
+                   <td><a href="{{ url_for('order_details', order_id=order._id|string) }}">View</a>
+                   </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        

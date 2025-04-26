@@ -1,0 +1,94 @@
+.view-product
+{   display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: gray;
+    color: #333;border-color: black;
+    padding-left: 60px;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    
+
+}
+
+.Product-section{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+    align-items: center;
+    margin: 100px;
+}
+
+.table-container
+{
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color:#cecdcd;
+    border-radius: 1px; 
+    overflow-x: auto;
+  
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial,sans-serif;
+    border-radius: 0px;
+    overflow: hidden;
+    background-color: white;
+
+}
+
+ th{
+    background-color: #77b122;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+ 
+tr
+{
+    border-bottom: 1px solid #ddd;
+}
+
+td
+{
+    padding: 12px;  
+}
+
+tbody:hover{
+    background-color: #f1f1f1;
+}
+
+#product-container {
+    width: 100%;
+    max-width: 100%;
+    height: 400px; /* Initial height */
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    position: relative;
+}
+
+.expanded {
+    height: auto !important; /* Ensure it fully expands */
+}
+
+.read-more-btn {
+    margin: 10px auto;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #77b122;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

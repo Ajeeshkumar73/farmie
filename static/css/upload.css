@@ -1,0 +1,94 @@
+.upload-product
+{   display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: gray;
+    color: #333;border-color: black;
+    padding-left: 60px;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.Product-section{
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1380px;
+    width: 100%;
+    height: 372px;
+    margin-top: 100px;
+    background-color: #cecdcd;
+    text-align: center;
+}
+
+button {
+    background-color:#77b122;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    width: 150px; 
+    align-items: center;
+    height: 40px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+
+button:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+form {
+    border: #333;
+   }
+   
+   label {
+       padding-left: 20px;
+   }
+   
+   input[type="text"], input[type="number"],textarea {
+   
+       border: 1px solid gray;
+       border-radius: 8px;
+       font-size: 16px;
+       width: 200px; 
+       padding-left: 10px;;
+       transition: transform 0.2s;
+       cursor: pointer;
+       background-color: rgb(255, 255, 255);
+       height: 35px;
+   }
+
+   input:hover {
+    transform: scale(1.05);
+}
+
+
+textarea:hover
+{
+    transform: scale(1.05); 
+}
+textarea{
+    width: 500px;
+    height: auto;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+  
+}
+
+label[for="description"]
+{
+   margin-left: 100px;
+   
+   
+   
+}

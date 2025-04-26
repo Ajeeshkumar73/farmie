@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" type="text/css">
+</head>
+<body>
+    <header class="header-area">
+
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img
+                            src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{ url_for('backfarmer') }}">Home</a></li>
+                                    
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </header>
+
+					
+        <div class="profile-section">
+            <div class="Product-section">      
+    <h1>Profile</h1>
+    <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""><br><br>
+    <form method="POST" action="{{ url_for('profile') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ farmer['name'] }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ farmer['email'] }}" required>
+
+        <label for="contact">Contact No:</label>
+        <input type="text" name="contact" id="contact" value="{{ farmer['contact'] }}" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" value="{{ farmer['address'] }}" required>
+
+        <label for="place">Place:</label>
+        <input type="text" name="place" id="place" value="{{ farmer['place'] }}" required>
+        
+
+        <label for="pin">Pincode:</label>
+        <input type="text" name="pin" id="pin" value="{{ farmer['pin'] }}" required><br><br>
+
+        <label for="district">District:</label>
+        <select name="district" id="district" required>
+            {% set districts = ["Thiruvananthapuram", "Kollam", "Pathanamthitta", "Alappuzha", "Kottayam", 
+                                "Idukki", "Ernakulam", "Thrissur", "Palakkad", "Malappuram", 
+                                "Kozhikode", "Wayanad", "Kannur", "Kasaragod"] %}
+            {% for district in districts %}
+                <option value="{{ district }}" {% if farmer['district'] == district %}selected{% endif %}>
+                    {{ district }}
+                </option>
+            {% endfor %}
+        </select>        
+
+        <label for="state">State:</label>
+        <select name="state" id="state" required>
+            {% set states = ["Kerala"] %}
+            
+            {% for state in states %}
+                <option value="{{ state }}" {% if farmer['state'] == state %}selected{% endif %}>
+                    {{ state }}
+                </option>
+            {% endfor %}
+        </select>
+        
+
+        <button type="submit">Update Profile</button>
+
+    </form>
+</div>
+</div>
+<footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+    <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+    </footer>    
+</body>
+</html>

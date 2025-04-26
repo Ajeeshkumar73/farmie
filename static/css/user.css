@@ -1,0 +1,245 @@
+.product-display
+{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    margin-top: 0px;
+}
+
+.product-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between products */
+}
+
+.product-cart {
+    flex: 0 0 auto; /* Prevents shrinking */
+   border: 1px solid rgb(211, 211, 211);
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 400px;
+    background-color: (255, 255, 255, 0.2);
+    margin-left: 20px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+.product-item {
+    flex: 0 0 auto; /* Prevents shrinking */
+
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 400px;
+    background-color: (255, 255, 255, 0.2);
+    margin-left: 20px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.product-thumbnail img {
+    height: 250px;
+    width: 300px; 
+    box-shadow: gray;
+    border-radius: 7px;
+    border: 1px solid black;
+
+}
+
+#project:hover
+{
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+product-desc {
+    text-align: left; /* Align content to the left */
+    padding-top: 10px;
+}
+.product-desc button,
+.product-desc form {
+    display: inline-block;
+    margin-right: 10px; /* Space between buttons */
+}
+.product-desc a {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit color for consistency */
+}
+
+button {
+    background-color:#77b122;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    width: 100px; 
+    align-items: center;
+    height: 30px;
+    margin-left: 15px;
+    padding-top: 2px;
+}
+
+
+button:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+.search-bar input[type="text"] {
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: gray;
+    width: 500px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+       cursor: pointer;
+}
+
+input:hover {
+    transform: scale(1.05);
+}
+
+.form-select{
+    width: 70px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.section-heading h2 span {
+    color: #77b122;
+}
+.section-heading{
+    text-align: center;
+    padding-top: 20px;
+    background-color:white;
+}
+
+.section-head{
+    text-align: center;
+    padding-top: 20px;
+    background-color:rgb(237, 237, 237);
+   
+}
+
+#quantity{
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: gray;
+    width: 70px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+       cursor: pointer;
+       height: 30px;
+
+}
+
+.buy-item {
+    flex: 0 0 auto; /* Prevents shrinking */
+    border: 1px solid rgb(193, 193, 193);
+    padding-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 470px;
+    background-color: white;
+    margin-left: 20px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.buy-section {
+    background-color: #f8f9fa;
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1380px;
+    width: 100%;
+    height: 550px;
+    margin: 100px;
+    background-color: #cecdcd;
+    padding-left: 480px;
+    
+}
+.product-desc button{
+width: 120px;
+}
+.close{
+    margin-top: 0%;
+}
+
+#scrolldown {
+    border-top: 2px solid #d0d0d0;
+    margin-top: 0%
+  
+}
+#scrolldown {
+    border-top: 3px solid #d0d0d0; 
+    position: relative; 
+   padding-top: 10px;
+   
+}
+
+.not-found {
+    display: none; /* Hidden by default */
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(158, 158, 158);
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 950px;
+    transform: translate(-50%, -50%);
+}

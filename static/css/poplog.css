@@ -1,0 +1,30 @@
+/* Modal content */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    text-align: left;
+    height: 300px;
+}
+
+
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: darkred;
+}
+
+.model{
+    margin-left: 300px;
+    margin-top: 2px;
+    padding-top: 10px;
+}

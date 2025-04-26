@@ -1,0 +1,245 @@
+body {
+    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+}
+.containerr {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 700px;
+   
+}
+.sidebar {
+    width: 280px;
+    background: #343a40;
+    color: white;
+    margin-left: -10px;
+    min-height: 100vh;
+    padding: 30px;
+    border-radius: 12px 0 0 12px;
+}
+.sidebar .profile img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sidebar h3 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.sidebar nav ul {
+    padding: 0;
+    margin-top: 20px;
+}
+.sidebar nav ul li {
+    padding: 14px;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 1rem;
+}
+.sidebar nav ul li:hover, .sidebar nav ul li.active {
+    background: #495057;
+    border-radius: 8px;
+}
+.profile-info, .order-details {
+    flex-grow: 1;
+    padding: 40px;
+    background: white;
+    border-radius: 0 12px 12px 0;
+    display: none;
+}
+.edit-profile{
+    z-index: 1000;
+    margin:  auto;
+    display: none;
+    flex-grow: 1;
+    padding: 40px;
+    width: 800px;
+    position: absolute;
+    margin-left: 492px;
+    margin-top: 40px;
+    top: 80px;
+    float: right;
+}
+
+.profile-info.active, .order-details.active, .edit-profile.active {
+    display: block;
+}
+
+
+.profile-info h2, .order-details h2, .edit-profile h2 {
+    color: #343a40;
+    font-weight: bold;
+    border-bottom: 3px solid #77b122;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+}
+.btn-primary {
+    background: #77b122;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background: #0056b3;
+}
+input[type="file"] {
+    display: none;
+}
+
+.details-cont {
+max-width: 600px;
+background: #fff;
+margin-top: 50px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+font-family: 'Arial', sans-serif;
+color: #333;
+border-left: 4px solid #77b122;
+}
+.details-cont p {
+font-size: 15px;
+margin: 8px 0;
+padding: 5px 0;
+border-bottom: 1px solid #eee;
+}
+.detail-item{
+border-bottom: 1px solid #eee;
+margin: 8px 0;
+padding: 5px 0;
+}
+.details-cont p:last-child {
+border-bottom: none;
+}
+.details-cont strong {
+color: #007bff;
+}
+.list-group {
+max-width: 600px;
+margin: auto;
+}
+.list {
+background: #f8f9fa;
+border-radius: 8px;
+padding: 15px;
+margin-bottom: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s ease-in-out;
+}
+.list:hover {
+transform: scale(1.02);
+}
+.order-details {
+font-size: 16px;
+color: #333;
+}
+.order-details strong {
+color: #007bff;
+}
+.order-history-container {
+max-width: 1000px;
+background: #fff;
+margin-top: 50px;
+max-height: 400px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+font-family: 'Arial', sans-serif;
+color: #333;
+border-left: 4px solid #77b122;
+overflow: hidden;
+overflow-y: auto;
+margin-left: 60px;
+}
+
+.order-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.order-item {
+padding: 0px;
+text-align: left;
+border-bottom: 1px solid #eee;
+padding-bottom: 2px;
+}
+
+.order-item:last-child {
+border-bottom: none;
+}
+
+.order-item strong {
+color: #007bff;
+}
+
+.status {
+font-weight: bold;
+padding: 6px 12px;
+border-radius: 5px;
+background-color: #77b122;
+color: white;
+font-size: 14px;
+display: inline-block;
+margin-top: 5px;
+}
+
+.status.pending {
+background-color: #ffeb3b;
+color: #856404;
+}
+
+
+
+.status.orderplacedsuccesfully {
+background-color: #28a745;
+color: #fff;
+}
+
+.status.cancelled {
+background-color: #dc3545;
+color: #fff;
+}
+#readMoreBtn {
+display: block;
+width: 100%;
+max-width: 200px;
+margin-top: -35px;
+margin-right: 55px;
+padding: 10px 15px;
+float: right;
+font-size: 16px;
+font-weight: bold;
+color: #fff;
+background-color: #007bff;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#readMoreBtn:hover {
+background-color: #0056b3;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#readMoreBtn:active {
+background-color: #00408b;
+transform: scale(0.98);
+}

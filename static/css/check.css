@@ -1,0 +1,80 @@
+
+.guide_section{
+    width: 100%;
+    height: 635px;
+    font-family: 'Arial', sans-serif;
+    background-color: gray;
+    color: #333;border-color: black;
+
+}
+
+.guideline{
+background-color: rgb(254, 251, 251);
+width: 70%;
+height: 635px;
+float: left;
+}
+
+.news{
+background-color: rgb(221, 239, 217);
+width: 30%;
+height: 635px;
+float: left;
+}
+.section-heading h2 span {
+    color: #77b122;
+}
+.section-heading{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.guide-suggection
+{
+    text-align: center;
+}
+
+form {
+ border: #333;
+}
+
+label {
+    padding-left: 20px;
+}
+
+input[type="text"], input[type="number"] {
+
+    border: px solid #615d5d;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 200px; 
+    padding-left: 10px;;
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-color: rgb(228, 222, 222);
+}
+input[type="text"]:hover {
+    transform: scale(1.05);
+}
+
+input[type="number"]:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color:#6def41;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    width: 200px; 
+    align-items: center;
+}
+
+button:hover {
+    background-color: #34b609;
+    transform: scale(1.05);
+}

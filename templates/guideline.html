@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/guideline.css') }}" type="text/css">
+</head>
+<body>
+        <header class="header-area">
+
+            <!-- Navbar Area -->
+            <div class="famie-main-menu" id="login_space">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Menu -->
+                        <nav class="classy-navbar justify-content-between" id="famieNav">
+                            <!-- Nav Brand -->
+                            <a href="#" class="nav-brand"><img
+                                src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                            
+                                <!-- Navbar Start -->
+                                <div class="classynav">
+                                    <ul>
+                    
+                                        <li><a href="{{ url_for('disease') }}">Disease Identification</a></li>
+                                        <li><a href="{{ url_for('home') }}">Back</a></li>
+                                        <li><a href=""></a></li>
+                                    </ul>
+    
+                                </div>
+                                <!-- Navbar End -->
+                            </div>
+                        </nav>
+                    </header>
+                    <!--start guideline-->
+     <div class="guide_section">
+        
+        <!--guideline-->
+        <div class="guideline">
+            <div class="inner-guideline">
+            <div class="section-heading ">
+                <p>Guideline</p>
+                <h2>
+                    <span>Choose Ur</span> Crop
+                </h2>
+                <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt="">
+            </div>
+            <div class="guide-suggection">
+                <form method="post" action="{{ url_for('guideline') }}" >
+                    <label for="climate" >Climate:</label>
+                    <input type="text" id="climate" name="climate"  required placeholder="Climate">
+                    <label for="soil_type" >Soil Type:</label>
+                    <input type="text" id="soil_type" name="soil_type" required placeholder="Soil Type"><br><br>
+                    <button type="submit">submit</button>
+                    <button type="button" onclick="clearFields()">Refresh</button>
+                </form>
+                <img src="{{ url_for('static', filename='images/img/core-img/decor.png') }}" alt=""> 
+            </div>
+        </div>
+        <div class="step" id="step-section">
+    <!--<div>
+        <h2>Available Crops:</h2>
+                <ul>
+                    {% for crop in crops %}
+                        <li>
+                            <strong>{{ crop.crop_name }}</strong><br>
+                            Climate: {{ crop.climate }}<br>
+                            Soil Type: {{ crop.soil_type }}
+                        </li>
+                    {% endfor %}
+                </ul>
+    </div>-->
+    <div>
+        {% if zipped_crops %}
+                <div class="steps-container">
+                    <div class="section-heading ">
+                        <p>Cultivation steps</p>
+                        <h2>
+                            <span>Suitable</span> crops
+                        </h2>
+                        <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt="">
+                    </div>
+                    <div class="inner-step" >
+                        {% if error_message %}
+        <h6 style="color: red;">{{ error_message }}</h6>
+    {% endif %}
+   
+                    <ul>
+                        {% for crop_name, step_list in zipped_crops %}
+                            <li>
+                                <div class="hed" style="border-bottom: 2px  solid rgb(185, 180, 180); padding-bottom: 0px; "><h4>{{ crop_name }}</h4></div> 
+                                <ol class="step-list" style="margin-top: 5px; margin-bottom: 5px; padding: 5px; border-bottom:2px  solid rgb(185, 180, 180); color: rgb(141, 141, 141) ;">
+                                    {% for step in step_list %}
+                                        <li class="step-item" style="margin-top: 2px;">{{ step }}</li>
+                                    {% endfor %}
+                                </ol>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    
+                    </div>
+                </div>
+            {% endif %}  
+    </div>
+        
+        
+    </div>
+
+                                                     
+</div>
+    <!--footer-->     
+    
+    <script>
+        function clearFields() {
+            document.getElementById("climate").value = "";
+            document.getElementById("soil_type").value = "";
+        }
+        </script>
+
+        <!--add step-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".step-list").forEach(function (list) {
+                    list.querySelectorAll(".step-item").forEach(function (item, index) {
+                        item.innerHTML = `<strong>Step ${index + 1}:</strong> ${item.innerHTML}`;
+                    });
+                });
+            });
+        </script>
+
+        <!--scroll to step-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Check if scrolling is needed after page reload
+                if (localStorage.getItem("scrollToSteps") === "true") {
+                    localStorage.removeItem("scrollToSteps"); // Clear after using
+                    document.getElementById("step-section").scrollIntoView({ behavior: "smooth" });
+                }
+        
+                document.querySelector("form").addEventListener("submit", function () {
+                    localStorage.setItem("scrollToSteps", "true"); // Store flag before submission
+                });
+            });
+        </script>
+        
+        
+        
+  
+</body>
+</html>

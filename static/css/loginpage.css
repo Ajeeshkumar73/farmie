@@ -1,0 +1,145 @@
+
+a{
+  color: #000;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.2); /* Transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: auto;;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 157px;
+  height: 360px;
+  width:100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.register {
+  background: rgba(255, 255, 255, 0.2); /* Transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 130px;
+  height: 445px;
+  width:100%;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover, .close:focus {
+  color: black;
+}
+
+/* Style for the login form inside the modal */
+h2 {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: white;
+}
+
+
+input[type="text"], input[type="number"],input[type="email"],input[type="password"]
+{
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 100%; 
+  padding: 10px;;
+  transition: transform 0.2s;
+  cursor: pointer;
+  background-color: rgb(228, 222, 222);
+}
+input[type="text"]:hover {
+  transform: scale(1.05);
+}
+
+input[type="number"]:hover {
+  transform: scale(1.05);
+}
+
+input[type="email"]:hover {
+  transform: scale(1.05);
+}
+
+input[type="password"]:hover {
+  transform: scale(1.05);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #77b122;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  align-items: center;
+
+}
+
+.login-btn:hover {
+  background-color: #62911c;
+  transform: scale(1.05);
+}
+ 
+ /*#rusername{
+  width: 90%;
+  margin-left: 30px;
+ }
+ #rpassword{
+  width: 90%;
+  margin-left: 30px;
+ }
+ #email{
+  width: 90%;
+  margin-left: 30px;
+ }
+ */
+ .btn {
+  width: 30%;
+  padding: 10px;
+  background-color: #77b122;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  align-items: center;
+
+}
+
+.btn:hover {
+  background-color: #62911c;
+  transform: scale(1.05);
+}
+
+
+

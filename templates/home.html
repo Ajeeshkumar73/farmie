@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmily - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+<!-- Core Stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/slide.css') }}" type="text/css"> 
+
+<!-- animaton in benifit area-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- AOS Library CSS -->
+
+<!--close-->
+	<script src="{{ url_for('static', filename='js/js1/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/js1/jquery-1.11.1.min.js') }}"></script>
+	<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    <header class="header-area">
+
+		<!-- Navbar Area -->
+		<div class="famie-main-menu" id="login_space">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<!-- Menu -->
+					<nav class="classy-navbar justify-content-between" id="famieNav">
+						<!-- Nav Brand -->
+						<a href="#" class="nav-brand"><img
+							src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+						<!-- Navbar Toggler -->
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
+						<!-- Menu -->
+						
+							<!-- Navbar Start -->
+							<div class="classynav">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li><a href="/upload_product">Upload Product</a></li>
+									<li><li><a href="/products">View Products</a></li></li>
+                                    <li><a href="/profiles">Profile</a></li>
+                                   <li><a href="/farmer_orders">Orders</a></li>
+
+                                    <li><a href="/signout">Sign Out</a></li>
+                                    <li></li>
+								</ul>
+							<!-- Navbar End -->
+						</div>
+					</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="hero-area">
+		<div class="welcome-slides owl-carousel">
+
+			<!-- Single Welcome Slides -->
+			<div class="single-welcome-slides bg-img bg-overlay jarallax"
+				style="background-image: url(static/images/img/bg-img/1.jpg) ">
+				<div class="container h-100">
+					<div class="row h-100 align-items-center">
+						<div class="col-12 col-lg-10">
+							<div class="welcome-content">
+								<h2 data-animation="fadeInDown" data-delay="200ms">The hearth of
+									the farm is the true center of our universe.</h2>
+								<p data-animation="fadeInDown" data-delay="400ms">This service
+									boosts business communication and brings transparency in the
+									system.</p>	
+									<a href="/upload_product" class="btn famie-btn mt-4"
+									data-animation="bounceInDown" data-delay="600ms">Upload Products</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ##### Hero Area End ##### -->
+
+	<!-- ##### Famie Benefits Area Start ##### -->
+	<section class="famie-benefits-area section-padding-100-0 pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="benefits-thumbnail mb-50">
+						<img src="{{ url_for('static', filename='images/img/bg-img/2.jpg') }}" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50"
+					data-aos="fade-up" data-aos-delay="100">
+						<img src="{{ url_for('static', filename='images/img/core-img/digger.png') }}" alt="">
+						<h5>Best Services</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50"
+					data-aos="fade-up" data-aos-delay="300">
+						<img src="{{ url_for('static', filename='images/img/core-img/windmill.png') }}" alt="">
+						<h5>Farm Experiences</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50"
+					data-aos="fade-up" data-aos-delay="500">
+						<img src="{{ url_for('static', filename='images/img/core-img/cereals.png') }}" alt="">
+						<h5>100% Natural</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50"
+					data-aos="fade-up" data-aos-delay="700">
+						<img src="{{ url_for('static', filename='images/img/core-img/tractor.png') }}" alt="">
+						<h5>Farm Equipment</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50"
+					data-aos="fade-up" data-aos-delay="900">
+						<img src="{{ url_for('static', filename='images/img/core-img/sunrise.png') }}" alt="">
+						<h5>Organic food</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ##### Famie Benefits Area End ##### -->
+	<button id="scrollUpBtn" title="Go to top">↑</button>
+		
+<footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+ <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+</footer>	
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        once: false, // Only animate once per scroll
+		mirror: true     // Elements animate when scrolling up as well
+    });
+</script>	
+
+<script>
+    $(document).ready(function() {
+        var scrollButton = $("#scrollUpBtn");
+
+        // Show the button when user scrolls down 200px
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                scrollButton.fadeIn();
+            } else {
+                scrollButton.fadeOut();
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollButton.click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 500);
+        });
+    });
+</script>
+
+</body>
+</html>

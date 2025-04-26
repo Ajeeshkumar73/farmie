@@ -1,0 +1,98 @@
+.guide_section{
+    width: 100%;
+    height: fit-content;
+    font-family: 'Arial', sans-serif;
+   
+    color: #333;border-color: black;
+    background-color: rgb(254, 251, 251);
+
+}
+
+.guideline{
+background-color: rgb(254, 251, 251);
+width: 80%;
+height: 1220px;
+padding: 20px;
+margin: 20px;
+margin-left: 150px;
+}
+
+.news{
+ margin-top: 20px;
+background-color: rgb(220, 220, 220);
+width: 30%;
+height: 1220px;
+float: left;
+
+}
+.section-heading h2 span {
+    color: #77b122;
+}
+.section-heading{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.guide-suggection
+{
+    text-align: center;
+}
+
+form {
+ border: #333;
+}
+
+label {
+    padding-left: 20px;
+}
+
+input[type="text"] {
+
+    border: 1px solid gray;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 200px; 
+    padding-left: 10px;;
+    transition: transform 0.2s;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+}
+input[type="text"]:hover {
+    transform: scale(1.05);
+}
+
+
+button {
+    background-color:#77b122;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    width: 200px; 
+    align-items: center;
+}
+
+button:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+.inner-guideline
+{
+    border: 1px solid #b4b3b3;
+    padding: 20px;
+    background-color: #cecdcd;
+}
+
+.step{
+    margin-top:40px;
+    background-color:white;
+    padding: 50px;
+    height: fit-content;
+ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+ border-radius: 10px;
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmie - Your Cart</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}" type="text/css"> 
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <a href="#" class="nav-brand"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/user_home">Home</a></li>
+								<li><a href="/use_profile">👤 Profile</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-head ">
+        <p>FEATURED PRODUCTS</p>
+        <h2>
+            <span>Our Product</span> Are Highest Quality
+        </h2>
+        <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt="">
+    </div>
+
+	<!-- cart -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							
+								<tr class="table-head-row">
+									<th class="product-remove"></th>
+									<th class="product-name">Name</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Quantity</th>
+									<th class="product-total">Total</th>
+								</tr>
+							
+                            
+                                {% for item in cart_items %}
+                                <tr class="table-body-row">
+                                    <td class="product-remove"><a href="/remove_from_cart/{{ item['_id'] }}"><span class="close">&times;</span> </a></td>
+                                    <td class="product-name">{{ item['product_name'] }}</td>
+                                    <td class="product-price">{{ item.get('price', 0) }}</td> 
+									<td class="product-quantity">
+										<input type="number" name="quantity" value="{{ item['quantity'] }}" min="1" 
+											   data-item-id="{{ item['_id'] }}" class="update-quantity" style="width: 50px; text-align: center;">
+									</td>
+									
+                                    <td class="product-total">{{ item['quantity'] * item.get('price', 0) }}</td>  
+                                </tr>
+                                {% endfor %}
+        
+						</table>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="total-section">
+						<table class="total-table">
+							<thead class="total-table-head">
+								<tr class="table-total-row">
+									<th>Total</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="total-data">
+									<td><strong>Subtotal: </strong></td>
+									<td>{{ subtotal }}</td>
+								</tr>
+								<tr class="total-data">
+									<td><strong>Delivery charge: </strong></td>
+									<td>{{ shipping }}</td>
+								</tr>
+								<tr class="total-data">
+									<td><strong>Total: </strong></td>
+									<td>{{ total }}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="cart-buttons">
+							
+
+							<a href="{{ url_for('user_home') }}" class="boxed-btn black">Add more</a>
+							
+							<a href="{{ url_for('payment') }}" class="boxed-btn black" id="checkout-button">Check Out</a>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="info-boxes">
+		<div class="info-box">
+			<h3>Lowest Price Guaranteed</h3>
+			<p>Get a refund if you find it cheaper elsewhere.</p>
+		</div>
+		<div class="info-box">
+			<h3>Fresh & Organic</h3>
+			<p>100% organic vegetables & fruits available here.</p>
+		</div>
+	</div>
+
+	<footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+        <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+    </footer> 
+	
+	<!-- end cart -->
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$(".update-quantity").on("change", function() {
+			var itemId = $(this).data("item-id");  // Get item ID
+			var newQuantity = $(this).val();  // Get new quantity
+	
+			if (newQuantity < 1) {
+				newQuantity = 1; // Prevent negative or zero values
+				$(this).val(1);
+			}
+	
+			// Send AJAX request to update quantity
+			$.ajax({
+				url: "/update_cart/" + itemId,
+				type: "POST",
+				data: { quantity: newQuantity },
+				success: function(response) {
+					console.log("Quantity updated successfully");
+					location.reload(); // Refresh page to reflect changes
+				},
+				error: function() {
+					alert("Failed to update quantity. Please try again.");
+				}
+			});
+		});
+	});
+	</script>
+
+<!--without select-->	
+<script>
+	$(document).ready(function() {
+		function checkTotal() {
+			var total = parseFloat("{{ total }}"); // Get total from template
+			
+			if (total <= 0) {
+				$("#checkout-button").prop("disabled", true).css("opacity", "0.5"); // Disable button
+			} else {
+				$("#checkout-button").prop("disabled", false).css("opacity", "1"); // Enable button
+			}
+		}
+	
+		// Run check on page load
+		checkTotal();
+	
+		// If user clicks disabled checkout button, show an alert
+		$("#checkout-button").on("click", function(e) {
+			if (parseFloat("{{ total }}") <= 0) {
+				e.preventDefault();
+				alert("No items selected. Please add items to cart before checkout.");
+			}
+		});
+	
+		// Update check when quantity changes
+		$(".update-quantity").on("change", function() {
+			setTimeout(checkTotal, 500); // Delay to wait for AJAX update
+		});
+	});
+	</script>
+	
+	
+	
+</body>
+</html>

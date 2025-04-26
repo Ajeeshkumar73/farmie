@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ff6f00;
+    color: white;
+}
+
+.navbar input {
+    width: 300px;
+    padding: 5px;
+}
+
+.nav-links a, .cart, .profile {
+    margin-left: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.product-container {
+    display: flex;
+    margin: 50px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+   
+    
+}
+
+.product-thumbnail img {
+    width: 600px; 
+    border: 2px solid black;
+    border-radius: 7px;
+    height: 250px;
+}
+
+.product-details {
+    margin-left: 60px;
+}
+
+.price {
+    font-size: 20px;
+    color: #333;
+}
+
+.discount-price {
+    color: #ff6f00;
+    font-weight: bold;
+}
+
+
+
+
+
+button:hover {
+    background-color: #62911c;
+    transform: scale(1.05);
+}
+
+.quantity input
+{
+    padding-left: 19px;
+    width: 50px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity button {
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-to-cart, .order {
+    color: white;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.info-box {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color:#77b122; 
+    color: white;
+ 
+}
+.order{
+    order: -1; /* Moves the 'Clear' button to the left */
+    float: right;
+    margin-top: -54px;
+    margin-right: 280px;
+    background-color:#77b122; 
+    color: white;
+    margin-left: 150px;
+    font-size: 18px;
+    height: 44px;
+}
+
+.close
+{
+    color: gray;
+    margin-left: 700px;
+}
+
+#project:hover
+{
+    transform: scale(1.05);
+    transition: 1s;
+}
+ .button
+ {
+    display: flex;
+ }

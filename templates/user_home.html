@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmie - Your Agricultural Support</title>
+    <link rel="icon" href="static/images/img/core-img/favicon.ico">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slide.css') }}" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+
+
+<!--close-->
+	<script src="{{ url_for('static', filename='js/js1/bootstrap.min.js') }}"></script>
+	
+</head>
+<body>
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        <a href="#" class="nav-brand"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""></a>
+                        <!-- Navbar Toggler -->
+                        <div class="search-bar">
+                            <!-- Search and Filter Form -->
+                            <form action="/user_home" method="GET" style="display: flex; gap: 10px; align-items: center;">
+                                
+                                <!-- Search Box -->
+                                <input type="text" id="search-box"  name="search" placeholder="Search..." >
+                                
+                            </form>
+                        </div>
+                        <!-- Navbar Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="/user_home">Home</a></li>
+                                <li><a href="/cart">🛒 Cart <span id="cart-count">({{ cart_count }})</span></a></li>
+                                <li><a href="/use_profile">👤 Profile</a></li>
+                                <li><a href="/signout">Sign Out</a></li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Navbar End -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- home page slider -->
+	<div class="homepage-slider">
+		<!-- single home slider -->
+        <div class="single-homepage-slider" 
+        style="background-image: url('/static/images/slide image2.jpg'); 
+         background-repeat: no-repeat; 
+         background-position: center; 
+         background-size: cover; 
+         position : relative; 
+         width: 100%; 
+         height: 600px; 
+         display: flex; 
+         align-items: center; 
+         justify-content: center;">
+			<div class="container"  style="height: 400px;">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1 text-center">
+						<div class="hero-text">
+							<div class="hero-text-tablecell">
+								<p class="subtitle">Fresh And Organic</p>
+								<h1>Delicious Vegetables</h1>
+								<div class="hero-btns">
+                                    
+									<a href="/user_home" class="boxed">Shop Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- single home slider -->
+        <div class="single-homepage-slider" 
+        style="background-image: url('/static/images/slide image 1.jpg'); 
+         background-repeat: no-repeat; 
+         background-position: center; 
+         background-size: cover; 
+         position : relative; 
+         width: 100%; 
+         height: 600px; 
+         display: flex; 
+         align-items: center; 
+         justify-content: center;">
+			<div class="container"  style="height: 400px;">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1 text-center">
+						<div class="hero-text">
+							<div class="hero-text-tablecell">
+								<p class="subtitle">Fresh Everyday</p>
+								<h1>100% Organic Collection</h1>
+								<div class="hero-btns">
+									<a href="/user_home" class="boxed">Shop Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- single home slider -->
+		<div class="single-homepage-slider" 
+          style="background-image: url('/static/images/slideimage3.jpg'); 
+           background-repeat: no-repeat; 
+           background-position: center; 
+           background-size: cover; 
+           position : relative; 
+           width: 100%; 
+           height: 600px; 
+           display: flex; 
+           align-items: center; 
+           justify-content: center;">
+
+			<div class="container"  style="height: 400px;" >
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1 text-right">
+						<div class="hero-text">
+							<div class="hero-text-tablecell">
+								<p class="subtitle">Mega Sale Going On!</p>
+								<h1>Get More Discount</h1>
+								<div class="hero-btns">
+									<a href="/user_home" class="boxed">Shop Now</a>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end home page slider -->
+
+    <div class="section-heading " id="section">
+        <div class="not-found">No products found!</div>
+        <p>FEATURED PRODUCTS</p>
+        <h2>
+            <span>Our Product</span> Are Highest Quality
+        </h2>
+        <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt="">
+
+        <div class="product-display" id="product-container"  style=" padding-left: 70px;">
+            
+            {% for product in products %}
+                <div class="product-item">
+                    <h5>{{ product['name'] }}</h5>
+                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Product Thumbnail -->
+                        <div class="product-thumbnail" id="project">
+                            <a href="/buy_now/{{ product['_id'] }}"><img src="{{ url_for('static', filename='uploads/' + product['image']) }}" alt="{{ product['name'] }}"></a>
+                            <!-- Product Tags -->
+                            <span class="product-tags">Products</span>
+                            
+                        </div>
+                        <!-- Product Description -->
+                        <div class="product-desc text-center pt-4">
+                            <h5>Rs: {{ product['price'] }}</h5>
+                            <form action="/add_to_cart/{{ product['_id'] }}" method="POST">
+                                <button type="submit">Add cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+         <!-- Read More Button (Always Visible) -->
+         <button id="read-more-btn" class="read-more-btn" onclick="toggleHeight()">Read More</button>
+        </div>
+    
+    
+
+    <div class="contain">
+        <!-- Section Title -->
+        <h1 class="section-title">FRESH <span>VEGETABLE</span></h1>
+    
+        <div class="content">
+            <!-- Text Content (First Paragraph) -->
+            <div class="text-box">
+                <h2>Best Vegetables Shop</h2>
+                <p>
+                    It is a long established fact that a reader will be distracted 
+                    by the readable content of a page when looking at its layout. 
+                    The point of using Lorem Ipsum is that it has a more-or-less normal 
+                    distribution of letters, as opposed to using 'Content here, content here'. 
+                    Many desktop publishing packages and it is a long established fact that 
+                    a reader will be distracted.
+                </p>
+            </div>
+    
+            <!-- First Image (Right Side) -->
+            <div class="image-box">
+                <img src="{{ url_for('static', filename='images/vegetables1.webp') }}" alt="Basket of Vegetables">
+            </div>
+        </div>
+        </div>
+<!-- ##### Famie Benefits Area Start ##### -->
+<section class="famie-benefits-area section-padding-100-0 pb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Single Benefits Area -->
+            <div class="col-12 col-md-4 col-lg">
+                <div class="single-benefits-area mb-50" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-in-out">
+                    <div class="benefit-icon">
+                        <img src="{{ url_for('static', filename='images/img/core-img/digger.png') }}" alt="">
+                    </div>
+                    <h5>Best Services</h5>
+                </div>
+            </div>
+
+            <!-- Single Benefits Area -->
+            <div class="col-12 col-md-4 col-lg">
+                <div class="single-benefits-area mb-50" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-out">
+                    <div class="benefit-icon">
+                        <img src="{{ url_for('static', filename='images/img/core-img/windmill.png') }}" alt="">
+                    </div>
+                    <h5>Farm Experiences</h5>
+                </div>
+            </div>
+
+            <!-- Single Benefits Area -->
+            <div class="col-12 col-md-4 col-lg">
+                <div class="single-benefits-area mb-50" data-aos="fade-up" data-aos-delay="500" data-aos-easing="ease-in-out">
+                    <div class="benefit-icon">
+                        <img src="{{ url_for('static', filename='images/img/core-img/cereals.png') }}" alt="">
+                    </div>
+                    <h5>100% Natural</h5>
+                </div>
+            </div>
+
+            <!-- Single Benefits Area -->
+            <div class="col-12 col-md-4 col-lg">
+                <div class="single-benefits-area mb-50" data-aos="fade-up" data-aos-delay="700" data-aos-easing="ease-in-out">
+                    <div class="benefit-icon">
+                        <img src="{{ url_for('static', filename='images/img/core-img/tractor.png') }}" alt="">
+                    </div>
+                    <h5>Farm Equipment</h5>
+                </div>
+            </div>
+
+            <!-- Single Benefits Area -->
+            <div class="col-12 col-md-4 col-lg">
+                <div class="single-benefits-area mb-50" data-aos="fade-up" data-aos-delay="900" data-aos-easing="ease-in-out">
+                    <div class="benefit-icon">
+                        <img src="{{ url_for('static', filename='images/img/core-img/sunrise.png') }}" alt="">
+                    </div>
+                    <h5>Organic Food</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Famie Benefits Area End ##### -->
+ 
+
+        <button id="scrollUpBtn" title="Go to top">↑</button>
+
+        <footer style="background-color: #333;color: white;padding: 10px;text-align: center;position: absolute;width: 100%;">
+            <p>Contact Us: info@farmie.com | Follow us on social media!</p>
+        </footer>	
+        
+        
+        <script type="text/javascript" src="{{ url_for('static', filename='js/scrollup.min.js') }}"></script>
+    
+<script>
+$(document).ready(function(){
+    $('.homepage-slider').slick({
+        dots: true,  // Enable navigation dots
+        arrows: true,  // Enable previous/next buttons
+        autoplay: true,  // Enable automatic sliding
+        autoplaySpeed: 3000,  // Set slide interval to 3 seconds
+        fade: true,  // Enable smooth fading effect
+        speed: 800,  // Transition speed in milliseconds
+        infinite: true,  // Loop slides infinitely
+        pauseOnHover: false,  // Prevent pausing when hovering over the slide
+        prevArrow: '<button class="slick-prev">&#10094;</button>',
+        nextArrow: '<button class="slick-next">&#10095;</button>'
+    });
+});
+</script>
+
+
+<script>
+function updateCartCount() {
+    $.get("/cart_count", function(data) {
+        $("#cart-count").text(`(${data.count})`);
+    });
+}
+
+$(document).ready(function(){
+    updateCartCount(); // Update on page load
+
+    // Call updateCartCount periodically (optional)
+    setInterval(updateCartCount, 5000); // Update every 5 seconds
+});
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#search-box").on("input", function() {
+            var searchText = $(this).val().toLowerCase();
+            var found = false; // Flag to check if any product matches
+    
+            $(".product-item").each(function() {
+                var productName = $(this).find("h5").text().toLowerCase();
+                
+                if (productName.includes(searchText)) {
+                    $(this).show();  // Show matching products
+                    found = true; // Product found
+                } else {
+                    $(this).hide();  // Hide non-matching products
+                }
+            });
+    
+            // Move "section-heading" to replace the slider
+            if (searchText.length > 0) {
+                $(".homepage-slider").hide(); // Hide the slider
+                $("#scrolldown").css("margin-top", $(".header-area").outerHeight() + "px"); // Move up
+            } else {
+                $(".homepage-slider").show(); // Show the slider back when search is cleared
+                $("#scrolldown").css("margin-top", "0px");
+            }
+        });
+    });
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $("#search-box").on("input", function() {
+            var searchText = $(this).val().toLowerCase();
+            var found = false;
+    
+            $(".product-item").each(function() {
+                var productName = $(this).find("h5").text().toLowerCase();
+                if (productName.includes(searchText)) {
+                    $(this).show();
+                    found = true;
+                } else {
+                    $(this).hide();
+                }
+            });
+    
+            if (!found) {
+                $(".not-found").show();
+            } else {
+                $(".not-found").hide();
+            }
+    
+            // Add top border when searching
+            if (searchText.length > 0) {
+                $("#scrolldown").css("border-top", "3px solid #28a745"); // Green border
+            } else {
+                $("#scrolldown").css("border-top", "none"); // Remove border when cleared
+            }
+        });
+    });
+    </script>
+<script>
+    $(document).ready(function() {
+        var scrollButton = $("#scrollUpBtn");
+
+        // Show the button when user scrolls down 200px
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                scrollButton.fadeIn();
+            } else {
+                scrollButton.fadeOut();
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollButton.click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 500);
+        });
+    });
+</script>
+
+ <!--add more scroll--> 
+ <script>
+    window.onload = function() {
+        setTimeout(() => {
+            const section = document.getElementById("section");
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop,
+                    behavior: "smooth" // Enables smooth scrolling
+                });
+            }
+        }, 150); // 1.5-second delay before scrolling starts
+    };
+    </script>
+    <script>
+    $(document).ready(function(){
+        $(".boxed-btn").on("click", function(event){
+            event.preventDefault();
+            var target = $($(this).attr("href"));
+            
+            if(target.length){
+                $("html, body").animate({
+                    scrollTop: target.offset().top
+                }, 800); // Adjust speed as needed
+            }
+        });
+    });
+    
+</script>
+
+<!--read more to product-->
+<script>
+    function toggleHeight() {
+    var container = document.getElementById("product-container");
+    var button = document.getElementById("read-more-btn");
+
+    if (container.classList.contains("expanded")) {
+        container.style.height = "1400px";
+        container.classList.remove("expanded");
+        button.textContent = "Read More";
+
+        // Scroll back to 1400px from the top
+        window.scrollTo({ top: 1400, behavior: "smooth" });
+
+    } else {
+        container.style.height = container.scrollHeight + "px"; // Expand dynamically
+        container.classList.add("expanded");
+        button.textContent = "Read Less";
+    }
+}
+
+</script>
+
+    
+       
+</body>
+</html>

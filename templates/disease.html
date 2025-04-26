@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmily - Disease Identification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/disease.css') }}" type="text/css"> 
+</head>
+<body>
+    <header class="header-area">
+        <div class="famie-main-menu" id="login_space">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <a href="#" class="nav-brand">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+                        </a>
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="{{ url_for('back') }}">Back</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="find">
+        <div class="solutionfinder">
+            <div class="section-heading ">
+                <p>Disease Identification</p>
+                <h2><span>Find Your</span> Solution</h2>
+                <img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt="">
+            </div>
+            <div class="form-section">
+                 <form method="POST">
+                    <label for="disease">Enter Disease Name:</label>
+                    <input type="text" id="disease" name="disease" required placeholder="Enter disease name...">
+                    <button type="submit" class="solution-btn">Get Solution</button>
+                 </form>
+                 <form action="/clear" method="POST">
+                    <button type="submit" class="clear-btn">Clear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if solution %}
+    <div class="solution" >
+        <center><h2> Symptoms & Solution</h2></center>
+        <center><img src="{{ url_for('static', filename='images/img/core-img/decor2.png') }}" alt=""></center>
+        {% for line in solution.split(". ") %}
+            {% if "Symptoms" in line %}
+                <p><span style="color: rgb(0, 0, 0); font-weight: bold;"><h4>Symptoms:</h4></span> {{ line.split("Symptoms:")[-1] }}.</p>
+            {% elif "Causes" in line %}
+                <p><span style="color: rgb(0, 0, 0); font-weight: bold;"><h4>Causes:</h4></span> {{ line.split("Causes:")[-1] }}.</p>
+            {% elif "Prevention" in line %}
+                <p><span style="color: rgb(0, 0, 0); font-weight: bold;"><h4>Prevention:</h4></span> {{ line.split("Prevention:")[-1] }}.</p>
+            {% elif "Treatment" in line %}
+                <p><span style="color: rgb(0, 0, 0); font-weight: bold;"><h4>Treatment:</h4></span> {{ line.split("Treatment:")[-1] }}.</p>
+            {% else %}
+                <p>{{ line }}.</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+</body>
+</html>

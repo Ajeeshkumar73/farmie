@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Carousel</title>
+    <style>
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%;
+        }
+
+        .carousel-item {
+            flex: 1 0 33.33%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .carousel-buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-btn {
+            width: 15px;
+            height: 15px;
+            background-color: gray;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .carousel-btn.active {
+            background-color: green;
+        }
+
+        /* Product Styles */
+        .product-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+
+        .single-product-area {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .product-thumbnail img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            margin-top: 10px;
+        }
+
+        .quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .add-to-cart {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            {% for product in products %}
+            <div class="carousel-item">
+                <div class="single-product-area">
+                    <!-- Product Thumbnail -->
+                    <div class="product-thumbnail">
+                        <img src="{{ url_for('static', filename='uploads/' + product['image']) }}" alt="{{ product['name'] }}">
+                        <!-- Product Tags -->
+                        <span class="product-tags">Products</span>
+                    </div>
+                
+                    <div class="product-details">
+                        <h2>{{ product['name'] }}</h2>
+                        <p> | <span class="instock">Available (In Stock)</span></p>
+                        <p class="description">
+                            {{ product['description'] }}
+                        </p>
+                        <p class="price">
+                            <span class="discount-price">Rs {{ product['price'] }}</span>
+                        </p>
+                        <div class="quantity">
+                            <button onclick="decreaseQuantity()">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button onclick="increaseQuantity()">+</button>
+                        </div>
+                        <form action="/add_to_cart/{{ product['_id'] }}" method="POST">
+                            <button class="add-to-cart">🛒 Add to Cart</button>
+                            <button class="add-to-cart">Order Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Round Navigation Buttons -->
+    <div class="carousel-buttons">
+        {% for i in range(totalSlides) %}
+        <span class="carousel-btn" onclick="moveSlide({ i })"></span>
+    {% endfor %}   
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = Math.ceil(slides.length / 3);
+        const wrapper = document.querySelector('.carousel-wrapper');
+        const buttons = document.querySelectorAll('.carousel-btn');
+
+        function moveSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentIndex = index;
+                wrapper.style.transform = `translateX(-${index * 100}%)`;
+
+                buttons.forEach(btn => btn.classList.remove('active'));
+                buttons[currentIndex].classList.add('active');
+            }
+        }
+
+        function increaseQuantity() {
+            let quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        function decreaseQuantity() {
+            let quantityInput = document.getElementById('quantity');
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+
+        // Initialize first button as active
+        if (buttons.length > 0) buttons[0].classList.add('active');
+    </script>
+
+</body>
+</html>
