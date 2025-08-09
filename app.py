@@ -772,6 +772,32 @@ def use_profile():
     orders = list(payments_collection.find({"user_id": user_id}).sort("order_date", DESCENDING))
 
     return render_template("use_profile.html", user=user, orders=orders)
+
+#cancel order
+@app.route('/cancel_order/<order_id>', methods=['POST'])
+def cancel_order(order_id):
+    if 'user_id' not in session:
+        flash("Please log in to continue.", "error")
+        return redirect(url_for("user_login"))
+
+    try:
+        # Update status in payments collection
+        payments_collection.update_one(
+            {"_id": ObjectId(order_id)},
+            {"$set": {"status": "Cancelled"}}
+        )
+        # Also update in farmer_orders_collection (optional)
+        farmer_orders_collection.update_one(
+            {"_id": ObjectId(order_id)},
+            {"$set": {"status": "Cancelled"}}
+        )
+
+        flash("Order cancelled successfully.", "success")
+    except Exception as e:
+        flash("Error cancelling order.", "error")
+
+    return redirect(url_for("use_profile") + "#orders")
+
 @app.route('/update_profile', methods=['POST'])
 def update_profile():
     if 'user_id' not in session:
